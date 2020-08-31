@@ -22,6 +22,7 @@ router.post('/user', async(req, res)=>{
     }
 })
 router.patch('/user/:id', async(req, res)=>{
+    console.log(req.params.id, req.body);
     try {
         let userEdited = await UsersModel.findOneAndUpdate({_id: req.params.id}, req.body)
         res.status(200).send({success: true, userEdited})

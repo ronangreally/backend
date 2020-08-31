@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "env-cmd -e development node index.js",
-    "testing": "env-cmd -e testing nodemon index.js",
+    "test": "env-cmd -e testing jest --watch --runInBand",
     "start": "node index.js"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +17,11 @@
   "dependencies": {
     "env-cmd": "^10.1.0",
     "express": "^4.17.1",
-    "mongoose": "^5.10.0"
+    "mongoose": "^5.10.0",
+    "save-dev": "0.0.1-security"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "jest": "^26.4.2",
+    "supertest": "^4.0.2"
+  }
 }
