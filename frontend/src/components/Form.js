@@ -22,11 +22,11 @@ export default function Form({location, user}) {
     let url,method;
     //check if edit or add
     if(btnText === 'Add') {
-      url = 'http://localhost:3000/user/';
+      url = `${process.env.API_URL}/user/`;
       method = 'POST';
     }
     if(btnText === 'Edit') {
-      url = `http://localhost:3000/user/${ID}`;
+      url = `${process.env.API_URL}/user/${ID}`;
       method = 'PATCH';
     }
     console.log(url);

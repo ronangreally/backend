@@ -26,6 +26,7 @@ const useStyles = makeStyles({
 // ];
 
 export default function DenseTable() {
+  console.log("API_URL", process.env.API_URL);
   const classes = useStyles();
   const [users, setUsers] = useState([])
   const [rows, setRows] = useState([])
@@ -34,7 +35,7 @@ export default function DenseTable() {
   useEffect(()=>{
     console.log("effect ran");
         try {
-            fetch('http://localhost:3000/users')
+            fetch(`${process.env.API_URL}/users`)
             .then(r=>r.json())
             .then((r)=>{
                 setUsers(r)
@@ -60,7 +61,7 @@ export default function DenseTable() {
 
   function handleDelete(id){
     setStatus('loading')
-    fetch(`http://localhost:3000/user/${id}`, {
+    fetch(`${process.env.API_URL}/user/${id}`, {
       method: 'DELETE'
     })
     .then((r)=>r.json())

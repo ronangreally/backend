@@ -1,3 +1,8 @@
 https://www.robinwieruch.de/javascript-project-setup-tutorial/
 example of a good setup
 https://github.com/rwieruch/advanced-react-webpack-babel-setup
+
+//package.json
+proccess.env.NODE_ENV -- IF UNDEFINED, WE SET IT TO DEVELOPMENT
+proccess.env.NODE_ENV -- IF TEST, WE KNOW TO USE A TEST URL
+proccess.env.NODE_ENV -- ON HEROKU THIS EQUALS 'production'

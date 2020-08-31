@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
   }));
   
 const Main = ()=>{
+    console.log("process.env.API_URL", process.env.API_URL);
     const classes = useStyles(); 
     return (
     <Container maxWidth="md">

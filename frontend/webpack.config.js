@@ -1,6 +1,26 @@
 const webpack = require('webpack');
 
-module.exports = {
+//on heroku process.env.NODE_ENV ='production'
+//in test environment process.env.NODE_ENV ='test'
+//if neither, process.env.NODE_ENV = 'development
+//process.env.NODE_ENV are available/passed down to the app/client side, therefore we have to pass them in
+// process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
+if(process.env.NODE_ENV ==='test') {
+  require('dotenv').config({path: 'env/.env.tests'})
+}
+if(process.env.NODE_ENV ==='development') {
+  require('dotenv').config({path: 'env/.env.dev'})
+}
+if(process.env.NODE_ENV ==='production') {
+  require('dotenv').config({path: 'env/.env.prod'})
+}
+
+console.log("NODE ENV----",process.env.NODE_ENV)
+module.exports = function(env){
+  const isProduction = env === 'production';
+  console.log("ENV----", env)
+  return {
     // 1
     entry: './src/index.js',
     // 2
@@ -10,6 +30,7 @@ module.exports = {
       filename: 'bundle.js'
     },
     // 3
+    devtool: isProduction ? 'source-map': 'cheap-module-eval-source-map',
     devServer: {
       contentBase: './dist',
       hot: true,
@@ -28,6 +49,10 @@ module.exports = {
         extensions: ['*', '.js', '.jsx']
       },
       plugins: [
-        new webpack.HotModuleReplacementPlugin()
-      ],
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.DefinePlugin({
+          'process.env.API_URL' : JSON.stringify(process.env.API_URL)
+        })
+      ]
   };
+}
