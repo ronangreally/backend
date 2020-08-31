@@ -26,7 +26,7 @@ app.use((req,res, next)=>{
 
 app.use(userRouter)
 
-// app.use(express.static(publicPath));
+app.use(express.static(publicPath));
 
 app.get('*', (req,res, next)=>{
     res.sendFile(path.join(publicPath, 'index.html'))
