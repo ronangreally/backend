@@ -22,7 +22,7 @@ const Main = ()=>{
     return (
     <Container maxWidth="md">
       <div className={classes.root}>
-        <Table />
+        {/* <Table /> */}
         {/* <Async /> */}
     </div>
     </Container>
