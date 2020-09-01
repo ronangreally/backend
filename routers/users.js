@@ -2,14 +2,18 @@ const express = require('express');
 const router = new express.Router();
 const UsersModel  = require('../models/users');
 
+// GET ALL USERS - /users - GET
+// ADD A NEW USER - /user - POST
+// EDIT A USER - /user/:id - PATCH
+// DELETE A USER - /user/:id - DELETE
+
 router.get('/users', async(req,res)=>{
     try {
         const users = await UsersModel.find({})
-        res.send(users)
+        res.status(200).send({success: true, users})
     } catch (error) {
         res.send({error: true})
     }
-    UsersModel.find()
 })
 
 router.post('/user', async(req, res)=>{

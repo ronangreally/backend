@@ -1,0 +1,58 @@
+$left-width: 25%;
+$right-width: 75%;
+
+.card {
+  border: 4px solid $white;
+  box-sizing: border-box;
+  &:hover {
+    border: 4px solid $dark-purple;
+    cursor: pointer;
+  }
+    color: $dark;
+    max-width: 466px;
+    margin:10px auto;
+    padding: 20px;
+    // display: flex;
+    
+    background: $white;
+    // border: 1px solid lightgrey;
+    border-radius: 2%;
+}
+
+.card-left {
+  display: flex;
+    div:nth-child(1) {
+    width:$left-width;
+      span svg {
+        font-size: 5rem;
+        background: $pink;
+        border-radius: 25%;
+        color: $dark-purple;
+      }
+    }
+    div:nth-child(2) { 
+      width:$right-width;
+      background: $pink;
+      border-radius: 3%;
+      padding: 5px;
+      p {  
+ 
+        color: $dark-purple;
+        font-size: 0.8rem;
+        font-weight: 800;
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+}
+.card-right {
+  display: flex;
+  font-size: 0.4rem;
+  div:nth-child(1) {
+    width: $left-width;
+  }
+  div:nth-child(2) { 
+    width: $right-width;
+  }
+}

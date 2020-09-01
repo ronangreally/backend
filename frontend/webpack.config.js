@@ -5,7 +5,7 @@ const webpack = require('webpack');
 //if neither, process.env.NODE_ENV = 'development
 //process.env.NODE_ENV are available/passed down to the app/client side, therefore we have to pass them in
 // process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-
+//cross env sets process.env.NODE_ENV here module.exports so can import env variabbles from wahtever file
 if(process.env.NODE_ENV ==='test') {
   require('dotenv').config({path: 'env/.env.tests'})
 }
@@ -18,6 +18,8 @@ if(process.env.NODE_ENV ==='production') {
 
 console.log("NODE ENV----",process.env.NODE_ENV)
 module.exports = function(env){
+  //the env param works with dotenv and script "-env ..."
+  //cross env sets process.env.NODE_ENV above/outside module.exports so can import env variabbles from wahtever file
   const isProduction = env === 'production';
   console.log("ENV----", env)
   return {
@@ -25,7 +27,7 @@ module.exports = function(env){
     entry: './src/index.js',
     // 2
     output: {
-      path: __dirname + '/dist',
+      path: isProduction ? `${__dirname} + /dist` : `${__dirname}/dev-build`,
       publicPath: '/',
       filename: 'bundle.js'
     },

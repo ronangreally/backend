@@ -1,0 +1,25 @@
+form {
+    max-width: 266px;
+    margin:auto;
+    padding: 20px;
+    background: $white;
+    border: 1px solid lightgrey;
+    border-radius: 5%;
+}
+
+.radios-cont {
+    display: flex;
+   padding: 10px 0;
+   justify-content: space-between;
+   * {
+       padding: 4px;
+   }
+   input[type=radio] {
+       cursor: pointer;
+   }
+}
+.task-form {
+    .btns-cont {
+        display: flex;
+    }
+}

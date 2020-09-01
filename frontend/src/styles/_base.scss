@@ -1,0 +1,73 @@
+//colors
+$dark: #191919;
+$white: #fff;
+$green: #2C974B;
+$dark-purple: #4E075D;
+$pink: #F9DCFF;
+$success-green: #4BCA81;
+$background: #E1F2FF;
+$error-red-light: #ffe3e6;
+$error-red-dark: rgba(158,28,35,.2);
+$btn-border: rgba(27,31,35,.15);
+$btn-shadow: 0 1px 0 rgba(27,31,35,.1);
+
+body {
+    font-family: 'Lemonada', cursive;
+    color: $dark-purple;
+  }
+a {
+    // color: $white;
+    text-decoration: none;
+}
+#App {
+    background-color: $background;
+    min-height: 100%;
+}
+input, button, submit { border:none; } 
+.error {
+    width: 200px;
+    padding: 20px;
+    text-align: center;
+    margin: auto;
+    background: $error-red-light;
+    border: 1px solid $error-red-dark;
+}
+.success {
+    width: 200px;
+    padding: 20px;
+    text-align: center;
+    margin: auto;
+    background: $success-green;
+    border: 1px solid $green;
+}
+.loading {
+    width: 200px;
+    padding: 20px;
+    text-align: center;
+    margin: auto;
+    background: orange;
+    border: 1px solid darken(orange, 25%);
+}
+//hide and retain space
+.hide {
+    visibility: hidden;
+}
+
+//mixins
+@mixin button {
+    display: block;
+    width: 100px;
+    padding: 10px;
+    margin: auto;
+    border: 1px solid;
+    border-radius: 5%;
+    border-color: $btn-border;
+    box-shadow: $btn-shadow;
+    color: $white;
+    background-color: $dark-purple;
+    &:hover {
+        cursor: pointer;
+        background-color: lighten($dark-purple, 10%);
+    }
+  }
+  

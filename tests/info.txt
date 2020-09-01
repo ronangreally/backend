@@ -1,0 +1,6 @@
+supertest is used with express
+
+"test": "env-cmd -e testing jest --watch --runInBand",
+1. env-cmd -e testing, use env variables setup in the .env-cmdrc config file
+2. jest watch to run tests in watch mode
+3. --runInBand runs tests with limited resources to speed up tests.

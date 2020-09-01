@@ -1,9 +1,17 @@
 const express = require('express');
 const app = express();
 const path = require('path')
-const publicPath = path.join(__dirname,'frontend', 'dist')
-console.log("publicPath", publicPath);
+const publicPathProduction = path.join(__dirname,'frontend', 'dist')
+const publicPathDev = path.join(__dirname,'frontend', 'dev-build')
+let publicPath;
+console.log("publicPathProduction", publicPathProduction);
+console.log("publicPathDev", publicPathDev);
 console.log("MODE = ", process.env.MODE, process.env.DB_URL);
+if(process.env.MODE === 'production') {
+    publicPath = publicPathProduction;
+} else {
+    publicPath = publicPathDev;
+}
 //on heroku - process.env.PORT could be any port
 //on mymachine its undefined
 //therefore

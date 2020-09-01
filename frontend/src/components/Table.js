@@ -32,16 +32,17 @@ export default function DenseTable() {
   const [rows, setRows] = useState([])
   const [status,setStatus] = useState('')
 
-  useEffect(()=>{
+  useEffect( async()=>{
     console.log("effect ran");
         try {
-            fetch(`${process.env.API_URL}/users`)
-            .then(r=>r.json())
-            .then((r)=>{
-                setUsers(r)
-            })
+            const req = await fetch(`${process.env.API_URL}/users`)
+            const reqJSON = await req.json()
+            if(reqJSON.error){
+              return setStatus(`fetch e, ${reqJSON.msg}`)
+            }
+            setUsers(reqJSON.users)
         } catch (e) {
-            setError(`fetch e, ${e.message}`)
+          setStatus(`fetch e, ${e.message}`)
         }
   },[])
 
@@ -92,7 +93,6 @@ export default function DenseTable() {
         </TableHead>
         <TableBody>
           {rows.map((row) => (   
-            
               <TableRow key={row.id}>        
                 <TableCell component="th" scope="row">
                   {row.id}

@@ -1,0 +1,11 @@
+DB - BACKEND - FRONTEND
+
+//1 dev db - local backend / hosted backend - local frontend / hosted frontend
+//2 prod db - hosted frontend / hosted backend
+//3 testing db - local backend / no frontend
+
+PROCESS
+1. create locally
+2. Test tools locally
+3. Host to dev and test manual
+4. Push to prod
